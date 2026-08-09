@@ -51,27 +51,37 @@
             </div>
         </div>
         <div id="footer-placeholder"></div>
-        <script>
-            function initMailButton() {
-                const sendMailBtn = document.getElementById('mail');
-                    if (sendMailBtn) {
-                        sendMailBtn.addEventListener('click', () => {
+             <script>
+            function initMailButtons() {
+                const buttonIds = ['mail', 'mail2'];
+                
+                buttonIds.forEach(id => {
+                    const sendMailBtn = document.getElementById(id);
+                    if (sendMailBtn && !sendMailBtn.dataset.listenerAdded) {
+                        sendMailBtn.addEventListener('click', (e) => {
+                            e.preventDefault(); 
                             const targetAddress = 'jakub@szostko.com';
                             const subjectLine = "Question from Website";
                             const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
-                            
                             const mailtoUri = `mailto:${targetAddress}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyText)}`;
                             window.location.href = mailtoUri;
                         });
+                        sendMailBtn.dataset.listenerAdded = "true";
                     }
+                });
             }
+            document.addEventListener('DOMContentLoaded', () => {
+                initMailButtons(); 
+            });
             fetch('footer.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
-                    initMailButton(); 
+                    initMailButtons(); 
                 })
-                .catch(error => console.error('Wystąpił błąd:', error));
+                .catch(error => {
+                    console.error('Error loading footer', error);
+                });
         </script>
     </body>
 </html>
