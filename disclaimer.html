@@ -11,7 +11,7 @@
     <body>
         <header class="header">
             <div class="brand-group">
-                <img src="./assets/icon2.svg" class="logo">
+                <a href="./index.html"><img src="./assets/icon2.svg" class="logo"></a>
                 <a class="brand-name" style="font-weight: bold;">Qbasho</a>
             </div>
             <nav class="nav-links">
@@ -23,35 +23,34 @@
             <div id="content-wrap">
                 <div class="background-mail">
                     <h1 class="title">Commission Disclaimer & Third-Party IPs:</h1>
-                    <p class="title" style="margin-bottom: 5vh;">This portfolio features commissioned visual edits and Steam profile artworks containing third-party intellectual property (including, but not limited to, Undertale/Toby Fox and Warner Bros. Entertainment). I do not own, nor do I claim ownership of, these original characters, logos, or trademarks. My commission services compensate strictly for the labor, time, and technical skill required to edit and format these graphics. All commissioned derivative works are provided to clients for strict personal, non-commercial use only (e.g., personal Steam profiles) and may not be mass-produced, minted as NFTs, or redistributed for profit. These edits are unofficial and are not affiliated with or endorsed by the original copyright holders.</p>      
+                    <p class="title" style="margin-bottom: 5vh;">This portfolio features commissioned visual edits and Steam profile artworks containing third-party intellectual property (including, but not limited to, Undertale/Toby Fox and Warner Bros. Entertainment).</p>
+                        <p>I do not own, nor do I claim ownership of, these original characters, logos, or trademarks. My commission services compensate strictly for the labor, time, and technical skill required to edit and format these graphics. </p>
+                        <p style="margin-bottom: 5vh;">All commissioned derivative works are provided to clients for strict personal, non-commercial use only (e.g., personal Steam profiles) and may not be mass-produced, minted as NFTs, or redistributed for profit. These edits are unofficial and are not affiliated with or endorsed by the original copyright holders.</p>      
                 </div>
             </div>
         </div>
-        <footer>
-            <div>
-                <p>Website design and original compositions &copy; 2026 Jakub Szostko. All rights reserved.</p>
-                <a href="./disclaimer.html"><p>Click here to read about Commission Disclaimer & Third-Party IPs</p></a>
-                <p>If you want to use any of them write an e-mail to <span id="mail" style="cursor: pointer;">jakub@szostko.com</span></p>
-            </div>
-        </footer>
+        <div id="footer-placeholder"></div>
+                <script>
+                    function initMailButton() {
+                        const sendMailBtn = document.getElementById('mail');
+                            if (sendMailBtn) {
+                                sendMailBtn.addEventListener('click', () => {
+                                    const targetAddress = 'jakub@szostko.com';
+                                    const subjectLine = "Question from Website";
+                                    const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
+                                    
+                                    const mailtoUri = `mailto:${targetAddress}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyText)}`;
+                                    window.location.href = mailtoUri;
+                                });
+                            }
+                    }
+                    fetch('footer.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('footer-placeholder').innerHTML = data;
+                            initMailButton(); 
+                        })
+                        .catch(error => console.error('Wystąpił błąd:', error));
+                </script>
     </body>
-<script>
-    // 2. The JavaScript Functionality
-    const sendMailBtn = document.getElementById('mail');
-    const emailElement = 'jakub@szostko.com';
-
-    sendMailBtn.addEventListener('click', () => {
-      const targetAddress = emailElement;
-      const subjectLine = "Question from Website";
-      const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
-      const encodedSubject = encodeURIComponent(subjectLine);
-      const encodedBody = encodeURIComponent(bodyText);
-      if (targetAddress) {
-        const mailtoUri = `mailto:${targetAddress}?subject=${encodedSubject}&body=${encodedBody}`;
-        window.location.href = mailtoUri;
-      } else {
-        console.error("No email address found in the target div.");
-      }
-    });
-  </script>
 </html>
