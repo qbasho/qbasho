@@ -29,28 +29,28 @@
                 </div>
             </div>
         </div>
-        <div id="footer-placeholder"></div>
-                <script>
-                    function initMailButton() {
-                        const sendMailBtn = document.getElementById('mail');
-                            if (sendMailBtn) {
-                                sendMailBtn.addEventListener('click', () => {
-                                    const targetAddress = 'jakub@szostko.com';
-                                    const subjectLine = "Question from Website";
-                                    const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
-                                    
-                                    const mailtoUri = `mailto:${targetAddress}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyText)}`;
-                                    window.location.href = mailtoUri;
-                                });
-                            }
+         <div id="footer-placeholder"></div>
+        <script>
+            function initMailButton() {
+                const sendMailBtn = document.getElementById('mail');
+                    if (sendMailBtn) {
+                        sendMailBtn.addEventListener('click', () => {
+                            const targetAddress = 'jakub@szostko.com';
+                            const subjectLine = "Question from Website";
+                            const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
+                            
+                            const mailtoUri = `mailto:${targetAddress}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyText)}`;
+                            window.location.href = mailtoUri;
+                        });
                     }
-                    fetch('footer.html')
-                        .then(response => response.text())
-                        .then(data => {
-                            document.getElementById('footer-placeholder').innerHTML = data;
-                            initMailButton(); 
-                        })
-                        .catch(error => console.error('Wystąpił błąd:', error));
-                </script>
+            }
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    initMailButton(); 
+                })
+                .catch(error => console.error('Wystąpił błąd:', error));
+        </script>
     </body>
 </html>
