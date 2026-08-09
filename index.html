@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Qbasho | Portfolio</title>
+        <link rel="shortcut icon" href="./assets/icon2.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="./assets/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <div class="brand-group">
+                <img src="./assets/icon2.svg" class="logo">
+                <a class="brand-name" style="font-weight: bold;">Qbasho</a>
+            </div>
+            <nav class="nav-links">
+                <a class="navbar active margin" href="./index.html">Home</a>
+                <a class="margin" href="./contact.html">Contact</a>
+            </nav>
+        </header>
+        <div id="page-container">   
+            <div id="content-wrap">
+                <div class="background">
+                    <h1 class="title">Illustrations</h1>
+                    <p class="title">Below you can see some illustrations that I drew in the past</p>
+                    <div class="album">
+                        <img loading="lazy" src="./assets/album/beer.jpg" style="background-color: #323232; object-fit: contain;">
+                        <img loading="lazy" src="./assets/album/stormtrooper.jpg" style="background-color: #8D8D8D; object-fit: contain;">
+                        <img loading="lazy" src="./assets/album/qbasho.jpg" style="object-fit: contain; background-color: #FA170C;">
+                        <img loading="lazy" src="./assets/album/ok.jpg">
+                        <img loading="lazy" src="./assets/album/vilor.jpg">
+                        <img loading="lazy" src="./assets/album/stevie.jpg">
+                        <img loading="lazy" src="./assets/album/krolu.jpg">
+                        <img loading="lazy" src="./assets/album/cards.jpg">
+                        <img loading="lazy" src="./assets/album/Hyde.jpg" style="background-color: #EAC056; object-fit: contain;">
+                        <img loading="lazy" src="./assets/album/claun.jpg">
+                        <img loading="lazy" src="./assets/album/batman.jpg">
+                    </div>
+                </div>
+                <div class="background">
+                    <h1 class="title">Edits and Steam Artworks</h1>
+                    <p class="title">Level up your digital presence. This gallery showcases custom-crafted animated Steam and Discord visual-edits designed to make your profile stand out. From seamless animations to aesthetic character designs, I transform standard graphics into dynamic digital experiences. Ready to make your profile truly yours? Let’s bring your vision to life.</p>
+                    <div class="album">
+                        <img loading="lazy"  src="./assets/album/shaggy.gif">
+                        <img loading="lazy" src="./assets/album/Shelby_smoking.gif">
+                        <img loading="lazy" src="./assets/album/SANS.gif">
+                        <img loading="lazy" src="./assets/album/mario.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <p>Website design and original compositions &copy; 2026 Jakub Szostko. All rights reserved.</p>
+                <a href="./disclaimer.html"><p>Click here to read about Commission Disclaimer & Third-Party IPs</p></a>
+                <p>If you want to use any of them write an e-mail to <span id="mail" style="cursor: pointer;">jakub@szostko.com</span></p>
+            </div>
+        </footer>
+    </body>
+<script>
+    // 2. The JavaScript Functionality
+    const sendMailBtn = document.getElementById('mail');
+    const emailElement = 'jakub@szostko.com';
+
+    sendMailBtn.addEventListener('click', () => {
+      const targetAddress = emailElement;
+      const subjectLine = "Question from Website";
+      const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
+      const encodedSubject = encodeURIComponent(subjectLine);
+      const encodedBody = encodeURIComponent(bodyText);
+      if (targetAddress) {
+        const mailtoUri = `mailto:${targetAddress}?subject=${encodedSubject}&body=${encodedBody}`;
+        window.location.href = mailtoUri;
+      } else {
+        console.error("No email address found in the target div.");
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Qbasho | Contact</title>
+        <link rel="shortcut icon" href="./assets/icon2.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="./assets/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <div class="brand-group">
+                <img src="./assets/icon2.svg" class="logo">
+                <a class="brand-name" style="font-weight: bold;">Qbasho</a>
+            </div>
+            <nav class="nav-links">
+                <a class="navbar margin" href="./index.html">Home</a>
+                <a class="margin active" href="./contact.html">Contact</a>
+            </nav>
+        </header>
+        <div id="page-container">
+            <div id="content-wrap">
+                <div class="background-mail">
+                    <h1 class="title">Contact</h1>
+                    <p class="title">For any business inquiries, the easiest way to contact me is via email, which I check daily.</p>
+                    <p>Simply click the button below to send me a message.</p>
+                    <div class="mail" id="mail">Send e-mail</div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <p>Website design and original compositions &copy; 2026 Jakub Szostko. All rights reserved.</p>
+                <a href="./disclaimer.html"><p>Click here to read about Commission Disclaimer & Third-Party IPs</p></a>
+                <p>If you want to use any of them write an e-mail to <span id="mail" style="cursor: pointer;">jakub@szostko.com</span></p>
+            </div>
+        </footer>
+    </body>
+<script>
+    // 2. The JavaScript Functionality
+    const sendMailBtn = document.getElementById('mail');
+    const emailElement = 'jakub@szostko.com';
+
+    sendMailBtn.addEventListener('click', () => {
+      const targetAddress = emailElement;
+      const subjectLine = "Question from Website";
+      const bodyText = "Hello Jakub,\n\nI am reaching out regarding...";
+      const encodedSubject = encodeURIComponent(subjectLine);
+      const encodedBody = encodeURIComponent(bodyText);
+      if (targetAddress) {
+        const mailtoUri = `mailto:${targetAddress}?subject=${encodedSubject}&body=${encodedBody}`;
+        window.location.href = mailtoUri;
+      } else {
+        console.error("No email address found in the target div.");
+      }
+    });
+  </script>
+</html>
